@@ -1,0 +1,58 @@
+@startuml
+ node "VIVID Service Layer"{
+     class VIVIDTextToSpeechService extends TextToSpeechService{
+         + void onDestroy() 
+         + void onCreate()
+         # String[] onGetLanguage()
+         # int onIsLanguageAvailable(String lang, String country, String variant)
+         # int onLoadLanguage(String lang, String country, String variant) 
+         # void onSynthesizeText(SynthesisRequest request, SynthesisCallback callback)
+         # void onStop()
+     }
+
+     interface VIVIDTextToSpeechHandler{
+         + void init(Context context)
+         + void stop()
+         + void release()
+         + void synthesize(String speechText)
+     }
+     VIVIDTextToSpeechService *--> VIVIDTextToSpeechHandler
+     class ReadSpeakerTextToSpeech implements VIVIDTextToSpeechHandler{
+
+     }
+     class XXTextToSpeech implements VIVIDTextToSpeechHandler
+
+ }
+ node "VIVID SDK Android Layer"{
+     abstract class TtsEngine {
+     + abstract void init(@NonNull final Context context, @NonNull final Locale locale)
+     + abstract boolean play(@NonNull final String ttsString, @NonNull final String utteranceId)
+     + abstract boolean isSpeaking()
+     + abstract void stop()
+     + abstract void release()
+     + abstract void interrupt()
+     }
+     class ReadSpeakerEngine extends TtsEngine{
+
+     }
+
+    interface InitCallback {
+        + void onInit(boolean success, boolean languageSupported)
+    }
+
+    interface SpeakListener {
+        + void onStart(String utteranceId)
+        + void onDone(String utteranceId)
+        + void onStop(String utteranceId, boolean interrupted)
+        + void onError(String utteranceId)
+        + void onError(String utteranceId, int errorCode)
+    }
+
+ }
+
+ ReadSpeakerTextToSpeech *--> TtsEngine
+ ReadSpeakerTextToSpeech ..|> InitCallback
+ ReadSpeakerTextToSpeech ..|> SpeakListener
+ ReadSpeakerEngine o---> InitCallback
+ ReadSpeakerEngine o--> SpeakListener
+@enduml

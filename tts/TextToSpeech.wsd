@@ -1,0 +1,48 @@
+@startuml
+
+  interface Action<R> {
+    R run(ITextToSpeechService service) throws RemoteException
+  }
+
+  class Connection implements ServiceConnection {
+    - ITextToSpeechService mService
+    - SetupConnectionAsyncTask mOnSetupConnectionAsyncTask
+    - boolean mEstablished
+    - final ITextToSpeechCallback.Stub mCallback
+  }
+
+  class Engine {
+
+  }
+
+  class EngineInfo {
+
+  }
+
+  interface OnInitListener{
+      void onInit(int status)
+  }
+
+  interface  OnUtteranceCompletedListener {
+
+  }
+
+  class SetupConnectionAsyncTask extends AsyncTask {
+
+  }
+
+  class ITextToSpeechCallback.Stub{
+
+  }
+  TextToSpeech +-- Action
+  TextToSpeech +-- Engine
+  TextToSpeech +-- EngineInfo 
+  TextToSpeech +-- OnInitListener
+  TextToSpeech +-- OnUtteranceCompletedListener
+  TextToSpeech +-- Connection
+
+  Connection +-- SetupConnectionAsyncTask
+  Connection +-- ITextToSpeechCallback.Stub
+
+
+@enduml

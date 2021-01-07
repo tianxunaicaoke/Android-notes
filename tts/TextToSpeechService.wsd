@@ -1,0 +1,30 @@
+@startuml
+class RemoteCallbackList<ITextToSpeechCallback> 
+class HandlerThread
+class Handler
+
+node "abstract TextToSpeech.java"{
+class SynthThread extends HandlerThread implements MessageQueue.IdleHandler{
+
+}
+class SynthHandler extends Handler
+
+note "hold the loop of" as n1
+SynthHandler -- n1
+n1 --> SynthThread
+abstract class SpeechItem
+
+abstract class UtteranceSpeechItem extends SpeechItem
+abstract class UtteranceSpeechItemWithParams extends UtteranceSpeechItem
+class SynthesisSpeechItem extends UtteranceSpeechItemWithParams
+class SynthesisToFileOutputStreamSpeechItem extends SynthesisSpeechItem
+class AudioSpeechItem extends UtteranceSpeechItemWithParams
+class SilenceSpeechItem extends UtteranceSpeechItem
+class LoadLanguageItem extends SpeechItem
+class LoadVoiceItem extends SpeechItem
+class CallbackMap extends RemoteCallbackList
+class AudioOutputParams
+interface UtteranceProgressDispatcher
+}
+
+@enduml

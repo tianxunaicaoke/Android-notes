@@ -1,0 +1,12 @@
+emulator -avd VIVID_AAOS_11_API_30 -writable-system
+
+adb root 
+adb shell avbctl disable-verification
+adb disable-verity 
+adb reboot
+
+adb shell dumpsys overlay
+
+adb shell cmd overlay list --user current
+
+adb shell cmd overlay enable — user 10 xx

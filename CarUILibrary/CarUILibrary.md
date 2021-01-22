@@ -18,7 +18,7 @@ This customization is applied at Android system image build time. During the bui
 
 ### [Resource Overlays (RROs)](https://source.android.com/devices/architecture/rros)
 
-* **OverLayApk**
+* **OverLayApk** need do
 
 Define the ***overlay*** resource map: The following code shows an example res/xml/overlays.xml file.
 ~~~
@@ -49,7 +49,7 @@ And link the resource map:
 </manifest>
 ~~~
 
-* **TargetApk**
+* **TargetApk** need do
   
 Define ***overlayable*** in the following example res/values/overlayable.xml file
 ~~~

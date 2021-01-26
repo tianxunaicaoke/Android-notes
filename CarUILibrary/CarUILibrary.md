@@ -1,5 +1,6 @@
 # Car UI Library
 
+## Summary
 + What can customization
    + Components --> Java classes that implement a specific behavior. For example, CarUiRecyclerView and Toolbar 
    + Resources  --> Individual Android resources that represent the knobs available for OEMs to achieve consistency with their own design. The components above use these resources to become customizable   
@@ -8,7 +9,28 @@
    + Build-time overlays for build AAOS
    + OverlayApp use dynamic runtime overlays (dynamic RRO)
    + OverlayApp use static runtime overlays (static RRO)
+
 <img src="car_ui_library_where.png">
+<img src="flow.png">
+<img src="CULibrary.png">
+<img src="RROs.png">
+
+## What can customization
++ ### preference
+ ID|note
+ --|--:
+ CarUiDropDownPreference|
+ CarUiEditTextPreference|
+ CarUiListPreference|
+ CarUiMultiSelectListPreference|
+ CarUiTwoActionPreference|
+ CarUiRadioButtonPreference|
+ CarUiSeekBarDialogPreference|
+ CarUiSwitchPreference|
+ CarUiTwoActionPreference|
+ + ### recyclerView
+
+ + ### tool bar
 
 ## How to customization
 
@@ -73,5 +95,5 @@ Use the “policy” tag to enforce restrictions on overlayable resources. The t
 
 >  If the target package doesn't have a defined overlayable, the overlay must be preinstalled on the system image or signed with the same signature as the target to overlay the target package's resources.
 
-<img src="RROs.png">
+
 

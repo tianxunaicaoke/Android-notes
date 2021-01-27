@@ -10,27 +10,65 @@
    + OverlayApp use dynamic runtime overlays (dynamic RRO)
    + OverlayApp use static runtime overlays (static RRO)
 
-<img src="car_ui_library_where.png">
-<img src="flow.png">
-<img src="CULibrary.png">
-<img src="RROs.png">
 
-## What can customization
+   ***Comprehensive structure***
+   <img src="car_ui_library_where.png">
+
+    ***What can we do for different role*** 
+
+   <img src="flow.png">
+
+   ***Car UI Library***
+
+   <img src="CULibrary.png">
+
+   ***Run time resource overlays***
+   <img src="RROs.png">
+
+
+## What can customization in Car-UI-Library
 + ### preference
- ID|note
- --|--:
- CarUiDropDownPreference|
- CarUiEditTextPreference|
- CarUiListPreference|
- CarUiMultiSelectListPreference|
- CarUiTwoActionPreference|
- CarUiRadioButtonPreference|
- CarUiSeekBarDialogPreference|
- CarUiSwitchPreference|
- CarUiTwoActionPreference|
+  
+   ID|
+   --|--:
+   CarUiDropDownPreference|
+   CarUiEditTextPreference|
+   CarUiListPreference|
+   CarUiMultiSelectListPreference|
+   CarUiTwoActionPreference|
+   CarUiRadioButtonPreference|
+   CarUiSeekBarDialogPreference|
+   CarUiSwitchPreference|
+   CarUiTwoActionPreference|
+
  + ### recyclerView
+   ID|
+   --|--:
+   GridDividerItemDecoration|
+   GridOffsetItemDecoration|
+   LinearDividerItemDecoration|
+   LinearOffsetItemDecoration|
+   CarUIListItem|
+   CarUiCheckBoxListItem|
+   CarUiContentListItem|
+   CarUiHeaderListItem|
+   CarUiRadioButtonListItem|
+   CarUiSmoothScroller|
+   FastScroller|
 
  + ### tool bar
+   ID|
+   --|--:
+   MenuItem|
+   ProgressBarController|
+   SearchView|
+   TabLayout|
+   Toolbar|
+
+ + ### Forcus
+ + ### CarUxRestriction
+
+https://cs.android.com/android/platform/superproject/+/master:packages/apps/Car/libs/car-ui-lib/car-ui-lib/src/main/res-overlayable/values/overlayable.xml 
 
 ## How to customization
 

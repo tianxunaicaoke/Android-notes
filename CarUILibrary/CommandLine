@@ -9,4 +9,4 @@ adb shell dumpsys overlay
 
 adb shell cmd overlay list --user current
 
-adb shell cmd overlay enable — user 10 xx
+adb shell cmd overlay enable — user current xx

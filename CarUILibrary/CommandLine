@@ -1,3 +1,4 @@
+C:\Users\xtian\AppData\Local\Android\Sdk\tools
 emulator -avd VIVID_AAOS_11_API_30 -writable-system
 
 adb root 
@@ -9,4 +10,4 @@ adb shell dumpsys overlay
 
 adb shell cmd overlay list --user current
 
-adb shell cmd overlay enable — user current xx
+adb shell cmd overlay enable --user current com.android.internal.systemui.navbar.twobutton

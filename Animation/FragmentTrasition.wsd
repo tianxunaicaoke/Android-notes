@@ -1,0 +1,42 @@
+@startuml
+
+|#Pink|Prepare transition|
+start
+:set enter/exit/... transition to fragment;
+:FragmentManager will start \ntransition at some point;
+if(transition is ) then (under android)
+: use FragmentTransitionCompat21 \nas FragmentTransitionImpl;
+else (under androidx)
+:use FragmentTransitionSupport \nas FragmentTransitionImpl;
+endif
+:get the (exiting/entering)Views and \naddTargets to (enter/exit)tranistion in case;
+:set enteringViews invisible;
+:merge (enter\exit\sharedElement)Transition;
+:set exitingViews invisible;
+partition TransitionManager {
+:beginDelayedTransition;
+if(transition == null) then(yes)
+:use AutoTransition as default;
+endif
+:pause runningTransition;
+:captureValues for transition before scene change;
+:wait sceneRoot onPreDraw OnPreDrawListener;
+(A)
+detach
+}
+|#gray|Play transition|
+(A)
+:sceneRoot onPreDraw;
+:captureValues for transition after scene change;
+partition Transition {
+    : For every paired \n(start/end)TransitionValue\n create Animation;
+    : run animation;
+    : call back when transition end;
+    (B)
+    detach
+}
+|#Pink|Prepare transition|
+(B)
+:do some clear step;
+stop
+@enduml
